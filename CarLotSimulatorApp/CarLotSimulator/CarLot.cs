@@ -7,7 +7,10 @@ namespace CarLotSimulator
 	{
 		public CarLot()
 		{
+			
 		}
+
+		public static int NumberOfCars {get; set;}
 
 		public List<Car> CarList = new List<Car>();
 
@@ -28,9 +31,13 @@ namespace CarLotSimulator
 				Console.WriteLine($"The {car.Year} {car.Make} {car.Model} {isDriveableText}");
 				car.MakeEngineNoise(car.EngineNoise);
 				car.MakeHonkNoise(car.HonkNoise);
-				Console.WriteLine("----------------------------------------------------------");
+                NumberOfCars++;
+				string writeStatement = (NumberOfCars == 1) ? $"There is {NumberOfCars} car in the lot." : $"There are {NumberOfCars} cars in the lot.";
+                Console.WriteLine(writeStatement);
+                Console.WriteLine("----------------------------------------------------------");
+                
 
-			}
+            }
 		}
 	}
 }
